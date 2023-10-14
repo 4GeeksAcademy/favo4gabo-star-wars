@@ -1,3 +1,9 @@
-/* 
-    General Styles
-*/
+.my-carrousel {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.my-card {
+    margin-right: 5px;
+    min-width: 300px;
+}
