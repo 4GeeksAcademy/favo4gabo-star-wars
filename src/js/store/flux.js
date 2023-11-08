@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			url: "https://www.swapi.tech/api/",
+			// en estos arrays se van a estar guardando los people, planets, vehicles y favoritos
 			people: [],
 			planets: [],
 			vehicles: [],
@@ -20,23 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			getPeople: () => {
-				let store = getStore()
-				fetch(`${store.url}people`)
-					.then(respuesta => respuesta.json())
-					.then(data => {
-						for (const people of data.results) {
-							fetch(`${store.url}people/${people.uid}`)
-								.then(respuesta => respuesta.json())
-								.then(data => {
-									setStore({ people: [...store.people, data.result] })
-								})
-							// console.log(`${store.url}people/${people.name}`)
-							// console.log(`${store.url}people/${people.uid}`)
-						}
-					})
-					.catch(error => console.error(error))
-			},
+
 
 			getPlanets: () => {
 				let store = getStore()
@@ -94,7 +79,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+
+			// funcion que se trae todos los people
+			// es asincrona porque usamos fetch
+			getPeople: async () => {
+				let store = getStore
+				try {
+					// hacemos el fetch de datos para traernos todos los people
+					// necesito la url, pero como debo agregarle "people", voy a meterla en literals ``
+					//  ${} es la forma de usar variables dentro de estas comillas ``
+					let response = await fetch(`${store.url}people`)
+					// no sabemos leer lo que nos responde la API, entonces lo traducimos a algo que js pueda leer
+					let data = await response.json()
+
+					console.log(data)
+
+				} catch (error) {
+					console.log(error)
+				}
+			},
 		}
 	};
 };

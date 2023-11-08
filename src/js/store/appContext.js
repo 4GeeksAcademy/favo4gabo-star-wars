@@ -23,6 +23,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			// quiero que cuando mi aplicacion cargue, llame a getPeople -> traiga los people
 			state.actions.getPeople();
 			state.actions.getPlanets();
 			state.actions.getVehicles();
