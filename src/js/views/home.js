@@ -19,8 +19,11 @@ export const Home = () => {
                 <img src={`https://starwars-visualguide.com/assets/img/characters/${item.uid}.jpg`} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title"> {item.properties.name} </h5>
-                  <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p className="card-text">Gender: {item.properties?.gender}</p>
+                  <p className="card-text">Hair: {item.properties?.hair_color}</p>
+                  <p className="card-text">Eye: {item.properties?.eye_color}</p>
                   <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
+                  
 
                 </div>
               </div>
@@ -39,8 +42,9 @@ export const Home = () => {
                 <img src={`https://starwars-visualguide.com/assets/img/planets/${item.uid}.jpg`} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title"> {item.properties?.name} </h5>
-                  <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  {/* <Link to={`/planets/${item._id}`} className="btn btn-primary">Learn more</Link> -----> OJO */}
+                  <p className="card-text">Climate: {item.properties?.climate}</p>
+                  <p className="card-text">Terrain: {item.properties?.terrain}</p>
+                  <Link to={`/planets/${item._id}`} className="btn btn-primary">Learn more</Link>
                 </div>
               </div>)
           })}
@@ -56,8 +60,10 @@ export const Home = () => {
                 <img src={`https://starwars-visualguide.com/assets/img/vehicles/${item.uid}.jpg`} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title"> {item.properties?.name} </h5>
-                  <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <a href="#" className="btn btn-primary">Learn more</a>
+                  <p className="card-text">Vehicle class: {item.properties?.vehicle_class}</p>
+                  <p className="card-text">Cost in credits: {item.properties?.cost_in_credits}</p>
+                  <p className="card-text">Manufacturer: {item.properties?.manufacturer}</p>
+                  <Link to={`/vehicles/${item._id}`} className="btn btn-primary">Learn more</Link>
                 </div>
               </div>)
           })}

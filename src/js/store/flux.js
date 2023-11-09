@@ -22,6 +22,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 
+			getPeople: () => {
+				let store = getStore()
+				fetch(`${store.url}people`)
+					.then(respuesta => respuesta.json())
+					.then(data => {
+						for (const people of data.results) {
+							fetch(`${store.url}people/${people.uid}`)
+								.then(respuesta => respuesta.json())
+								.then(data => {
+													// lo que le estoy pasando a people es un array
+													// ... -> spreed operator cada vez que ejecuta hace una copia y agrega 
+									setStore({ people: [...store.people, data.result] })
+								})
+							// console.log(`${store.url}people/${people.name}`)
+							// console.log(`${store.url}people/${people.uid}`)
+						}
+					})
+					.catch(error => console.error(error))
+			},
 
 			getPlanets: () => {
 				let store = getStore()
@@ -83,22 +102,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// funcion que se trae todos los people
 			// es asincrona porque usamos fetch
-			getPeople: async () => {
-				let store = getStore
-				try {
-					// hacemos el fetch de datos para traernos todos los people
-					// necesito la url, pero como debo agregarle "people", voy a meterla en literals ``
-					//  ${} es la forma de usar variables dentro de estas comillas ``
-					let response = await fetch(`${store.url}people`)
-					// no sabemos leer lo que nos responde la API, entonces lo traducimos a algo que js pueda leer
-					let data = await response.json()
+			// getPeople: async () => {
+			// 	let store = getStore
+			// 	try {
+			// 		// hacemos el fetch de datos para traernos todos los people
+			// 		// necesito la url, pero como debo agregarle "people", voy a meterla en literals ``
+			// 		//  ${} es la forma de usar variables dentro de estas comillas ``
+			// 		let response = await fetch(`${store.url}people`)
+			// 		// no sabemos leer lo que nos responde la API, entonces lo traducimos a algo que js pueda leer
+			// 		let data = await response.json()
 
-					console.log(data)
+			// 		for (let person of data.results) {
+			// 			let responsePerson = await fetch(person.url)
+			// 			let dataPerson = await responsePerson.json()
+			// 			console.log(dataPerson)
+			// 		}
 
-				} catch (error) {
-					console.log(error)
-				}
-			},
+			// 		setStore({
+			// 			people:data.results
+			// 		})
+
+			// 	} catch (error) {
+			// 		console.log(error)
+			// 	}
+			// },
 		}
 	};
 };

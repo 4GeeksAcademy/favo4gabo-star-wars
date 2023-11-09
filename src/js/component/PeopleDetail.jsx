@@ -16,7 +16,12 @@ function PeopleDetail () {
     useEffect(() => {searchDetail()}, [store.people])
     return (
         <>
-        <h1>Soy people detail {detail?.properties?.name}</h1>
+        <div className="container">
+            <div className="d-flex justify-content-center ">
+            <h1>{detail?.properties?.name}</h1>
+            <p>Soy people detail</p>
+            </div>
+        </div>
         </>
     )
 }
