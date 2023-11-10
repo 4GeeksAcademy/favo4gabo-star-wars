@@ -16,10 +16,10 @@ export const Navbar = () => {
 			</Link>
 			<div className="ml-auto">
 				<ul className="navbar-nav">
-					<li className="nav-item dropdown">
-						<a className="nav-link dropdown-toggle bg-warning text-black" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<li className="nav-item dropdown">						
+						<button className="nav-link dropdown-toggle btn btn-warning text black" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites {store.favoritos.length}
-						</a>
+						</button>
 						<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							{store.favoritos.map((item) => {
 								return (

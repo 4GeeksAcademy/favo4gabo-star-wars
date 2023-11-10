@@ -44,7 +44,7 @@ export const Home = () => {
         <div className="my-carrousel">
           {store.planets.map((item) => {
             return (
-              <div key={item._id} className="my-card">
+              <div key={item._id} className="my-card ">
                 <img src={`https://starwars-visualguide.com/assets/img/planets/${item.uid}.jpg`} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title"> {item.properties?.name} </h5>

@@ -16,7 +16,7 @@ function PeopleDetail() {
     useEffect(() => { searchDetail() }, [store.people])
     return (
         <>
-            <div className="container">
+            <div className="container my-container">
                 <div className="d-flex justify-content-center ">
                     <div>
                         <img src={`https://picsum.photos/800/600`} className="card-img-top" alt="..." />
@@ -24,6 +24,13 @@ function PeopleDetail() {
                     <div>
                         <h1>{detail?.properties?.name}</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat officia eum laborum facere ipsa beatae corporis et? Architecto, iusto.</p>
+                    </div>
+                </div>
+                <div className="d-flex justify-content-center ">
+                    <div className="flex-column">
+                        <p className="card-text">Gender: {detail?.properties?.gender}</p>
+                        <p className="card-text">Hair: {detail?.properties?.hair_color}</p>
+                        <p className="card-text">Eye: {detail?.properties?.eye_color}</p>
                     </div>
                 </div>
             </div>

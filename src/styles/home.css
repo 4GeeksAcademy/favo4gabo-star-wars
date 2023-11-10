@@ -1,0 +1,7 @@
+.my-card{
+    border: 2px solid black;
+}
+
+.my-container{
+    min-height: 80vh;
+}
