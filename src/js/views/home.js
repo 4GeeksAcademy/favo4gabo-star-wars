@@ -26,7 +26,7 @@ export const Home = () => {
                     <div className="d-flex justify-content-between">
                       <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
                       <button onClick={() => actions.addFavorite(item)} type="button" className="btn btn-outline-warning">
-                      <i class="far fa-heart"></i>
+                        <i className="far fa-heart"></i>
                       </button>
                     </div>
                   </div>
@@ -51,9 +51,9 @@ export const Home = () => {
                   <p className="card-text">Climate: {item.properties?.climate}</p>
                   <p className="card-text">Terrain: {item.properties?.terrain}</p>
                   <div className="d-flex justify-content-between">
-                    <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
+                    <Link to={`/planets/${item._id}`} className="btn btn-primary">Learn more</Link>
                     <button onClick={() => actions.addFavorite(item)} type="button" className="btn btn-outline-warning">
-                      <i className="fa-solid fa-heart"></i>
+                      <i className="far fa-heart"></i>
                     </button>
                   </div>
                 </div>
@@ -75,10 +75,10 @@ export const Home = () => {
                   <p className="card-text">Cost in credits: {item.properties?.cost_in_credits}</p>
                   <p className="card-text">Manufacturer: {item.properties?.manufacturer}</p>
                   <div className="d-flex justify-content-between">
-                      <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
-                      <button onClick={() => actions.addFavorite(item)} type="button" className="btn btn-outline-warning">
-                        <i className="fa-solid fa-heart"></i>
-                      </button>
+                    <Link to={`/vehicles/${item._id}`} className="btn btn-primary">Learn more</Link>
+                    <button onClick={() => actions.addFavorite(item)} type="button" className="btn btn-outline-warning">
+                      <i className="far fa-heart"></i>
+                    </button>
                   </div>
                 </div>
               </div>)

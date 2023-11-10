@@ -79,39 +79,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// el favorito que va a guardar 
 			addFavorite: (favToSave) => {
 				let store = getStore()
-				// agregar favorito
-				setStore({
-					// se quedan los favoritos que ya agregue y que agregue aqui
-					// y agregar el favorito que estoy mandando
-					favoritos: [...store.favoritos, favToSave]
-				})
-			},
+				let exist = store.favoritos.some((item) => item._id == favToSave._id)
+				if (exist) {
+					let newFavoriteList = store.favoritos.filter((item) => item._id != favToSave._id)
 
-			// Use getActions to call a function within a fuction
-			// exampleFunction: () => {
-			// 	getActions().changeColor(0, "green");
-			// },
-			// loadSomeData: () => {
-			// 	/**
-			// 		fetch().then().then(data => setStore({ "foo": data.bar }))
-			// 	*/
-			// 	fetch
-			// },
-			// changeColor: (index, color) => {
-			// 	//get the store
-			// 	const store = getStore();
+					setStore({
+						favoritos: newFavoriteList
+					})
 
-			// 	//we have to loop the entire demo array to look for the respective index
-			// 	//and change its color
-			// 	const demo = store.demo.map((elm, i) => {
-			// 		if (i === index) elm.background = color;
-			// 		return elm;
-			// 	});
+				} else {
+					// agregar favorito
+					setStore({
+						// se quedan los favoritos que ya agregue y que agregue aqui
+						// y agregar el favorito que estoy mandando
+						favoritos: [...store.favoritos, favToSave]
+					})
+				}
 
-			// 	//reset the global store
-			// 	setStore({ demo: demo });
-			// },
-
+			}
 
 		}
 	};

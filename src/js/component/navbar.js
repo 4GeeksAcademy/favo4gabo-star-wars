@@ -5,23 +5,29 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 
-	const { store } = useContext(Context)
+	const { store, actions } = useContext(Context)
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg-black mb-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">Star Wars</span>
+				<span className="navbar-brand mb-0 h1">
+					<img src="https://lumiere-a.akamaihd.net/v1/images/sw_nav_logo_mobile_659fef1a_1_99c6e87c.png?region=0,0,312,32" className="rounded float-start" alt="Star Wars Logo" />
+				</span>
 			</Link>
 			<div className="ml-auto">
 				<ul className="navbar-nav">
 					<li className="nav-item dropdown">
-						<a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Favorites
+						<a className="nav-link dropdown-toggle bg-warning text-black" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Favorites {store.favoritos.length}
 						</a>
 						<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							{store.favoritos.map((item) => {
 								return (
-									<li><a className="dropdown-item" href="#">{item.properties.name}</a></li>
+									<li key={item._id}>
+										<a onClick={() => actions.addFavorite(item)} className="dropdown-item" href="#">{item.properties.name}
+											<i className="fas fa-trash"></i>
+										</a>
+									</li>
 								)
 							})}
 						</ul>

@@ -17,8 +17,18 @@ function VehiclesDetail() {
     useEffect(() => {buscarDetalle()}, [store.vehicles])
     return (
         <>
-                                 {/* la primera vez que de undefined, se espere  no explote a la primera */}
-        <h1> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, sed! {vehiculo?.properties?.name}</h1>
+            <div className="container">
+                <div className="d-flex justify-content-center ">
+                    <div>
+                        <img src={`https://picsum.photos/800/600`} className="card-img-top" alt="..." />
+                    </div>
+                    <div>
+                        {/* ? la primera vez que de undefined, se espera no explote a la primera */}
+                        <h1>{vehiculo?.properties?.name}</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat officia eum laborum facere ipsa beatae corporis et? Architecto, iusto.</p>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
