@@ -31,8 +31,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 							fetch(`${store.url}people/${people.uid}`)
 								.then(respuesta => respuesta.json())
 								.then(data => {
-													// lo que le estoy pasando a people es un array
-													// ... -> spreed operator cada vez que ejecuta hace una copia y agrega 
+									// lo que le estoy pasando a people es un array
+									// ... -> spreed operator cada vez que ejecuta hace una copia y agrega 
 									setStore({ people: [...store.people, data.result] })
 								})
 							// console.log(`${store.url}people/${people.name}`)
@@ -75,57 +75,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.error(error))
 				// console.log(`${store.url}planets`)
 			},
+
+			// el favorito que va a guardar 
+			addFavorite: (favToSave) => {
+				let store = getStore()
+				// agregar favorito
+				setStore({
+					// se quedan los favoritos que ya agregue y que agregue aqui
+					// y agregar el favorito que estoy mandando
+					favoritos: [...store.favoritos, favToSave]
+				})
+			},
+
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-				fetch
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
-
-			// funcion que se trae todos los people
-			// es asincrona porque usamos fetch
-			// getPeople: async () => {
-			// 	let store = getStore
-			// 	try {
-			// 		// hacemos el fetch de datos para traernos todos los people
-			// 		// necesito la url, pero como debo agregarle "people", voy a meterla en literals ``
-			// 		//  ${} es la forma de usar variables dentro de estas comillas ``
-			// 		let response = await fetch(`${store.url}people`)
-			// 		// no sabemos leer lo que nos responde la API, entonces lo traducimos a algo que js pueda leer
-			// 		let data = await response.json()
-
-			// 		for (let person of data.results) {
-			// 			let responsePerson = await fetch(person.url)
-			// 			let dataPerson = await responsePerson.json()
-			// 			console.log(dataPerson)
-			// 		}
-
-			// 		setStore({
-			// 			people:data.results
-			// 		})
-
-			// 	} catch (error) {
-			// 		console.log(error)
-			// 	}
+			// exampleFunction: () => {
+			// 	getActions().changeColor(0, "green");
 			// },
+			// loadSomeData: () => {
+			// 	/**
+			// 		fetch().then().then(data => setStore({ "foo": data.bar }))
+			// 	*/
+			// 	fetch
+			// },
+			// changeColor: (index, color) => {
+			// 	//get the store
+			// 	const store = getStore();
+
+			// 	//we have to loop the entire demo array to look for the respective index
+			// 	//and change its color
+			// 	const demo = store.demo.map((elm, i) => {
+			// 		if (i === index) elm.background = color;
+			// 		return elm;
+			// 	});
+
+			// 	//reset the global store
+			// 	setStore({ demo: demo });
+			// },
+
+
 		}
 	};
 };

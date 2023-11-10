@@ -22,8 +22,14 @@ export const Home = () => {
                   <p className="card-text">Gender: {item.properties?.gender}</p>
                   <p className="card-text">Hair: {item.properties?.hair_color}</p>
                   <p className="card-text">Eye: {item.properties?.eye_color}</p>
-                  <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
-                  
+                  <div className="row">
+                    <div className="d-flex justify-content-between">
+                      <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
+                      <button onClick={() => actions.addFavorite(item)} type="button" className="btn btn-outline-warning">
+                      <i class="far fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
 
                 </div>
               </div>
@@ -44,7 +50,12 @@ export const Home = () => {
                   <h5 className="card-title"> {item.properties?.name} </h5>
                   <p className="card-text">Climate: {item.properties?.climate}</p>
                   <p className="card-text">Terrain: {item.properties?.terrain}</p>
-                  <Link to={`/planets/${item._id}`} className="btn btn-primary">Learn more</Link>
+                  <div className="d-flex justify-content-between">
+                    <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
+                    <button onClick={() => actions.addFavorite(item)} type="button" className="btn btn-outline-warning">
+                      <i className="fa-solid fa-heart"></i>
+                    </button>
+                  </div>
                 </div>
               </div>)
           })}
@@ -63,7 +74,12 @@ export const Home = () => {
                   <p className="card-text">Vehicle class: {item.properties?.vehicle_class}</p>
                   <p className="card-text">Cost in credits: {item.properties?.cost_in_credits}</p>
                   <p className="card-text">Manufacturer: {item.properties?.manufacturer}</p>
-                  <Link to={`/vehicles/${item._id}`} className="btn btn-primary">Learn more</Link>
+                  <div className="d-flex justify-content-between">
+                      <Link to={`/people/${item._id}`} className="btn btn-primary">Learn more</Link>
+                      <button onClick={() => actions.addFavorite(item)} type="button" className="btn btn-outline-warning">
+                        <i className="fa-solid fa-heart"></i>
+                      </button>
+                  </div>
                 </div>
               </div>)
           })}

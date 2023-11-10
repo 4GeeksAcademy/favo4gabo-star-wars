@@ -10,12 +10,11 @@ function VehiclesDetail() {
 
     function buscarDetalle() {
                                     // find te devuelve el objeto
-        const vehicles = store['vehicles'].find((item) => item._id == id)
-        setVehiculo(vehicles)
+        const resultado = store['vehicles'].find((item) => item._id == id)
+        setVehiculo(resultado)
     }
     
     useEffect(() => {buscarDetalle()}, [store.vehicles])
-    console.log()
     return (
         <>
                                  {/* la primera vez que de undefined, se espere  no explote a la primera */}
