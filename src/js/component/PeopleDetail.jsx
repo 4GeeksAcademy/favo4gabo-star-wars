@@ -16,23 +16,47 @@ function PeopleDetail() {
     useEffect(() => { searchDetail() }, [store.people])
     return (
         <>
-            <div className="container my-container">
+            <div className="container my-container text-dark">
                 <div className="d-flex justify-content-center ">
-                    <div>
+                    <div className="p-3">
                         <img src={`https://picsum.photos/800/600`} className="card-img-top" alt="..." />
                     </div>
-                    <div>
+                    <div className="p-3">
+                        {/* ? la primera vez que de undefined, se espera no explote a la primera */}
                         <h1>{detail?.properties?.name}</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat officia eum laborum facere ipsa beatae corporis et? Architecto, iusto.</p>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center ">
-                    <div className="flex-column">
-                        <p className="card-text">Gender: {detail?.properties?.gender}</p>
-                        <p className="card-text">Hair: {detail?.properties?.hair_color}</p>
-                        <p className="card-text">Eye: {detail?.properties?.eye_color}</p>
+                <br />
+                <div className="d-flex justify-content-around border-top border-danger text-danger">
+                    <div className="border-start border-end border-danger p-2">
+                        <p className="card-text">Gender:</p>
+                        <p>{detail?.properties?.gender}</p>
                     </div>
+                    <div className="border-end border-danger p-2">
+                        <p className="card-text">Hair:</p>
+                        <p>{detail?.properties?.hair_color}</p>
+                    </div>
+                    <div className="border-end border-danger p-2">
+                        <p className="card-text">Eye:</p>
+                        <p>{detail?.properties?.eye_color}</p>
+                    </div>
+                    <div className="border-end border-danger p-2">
+                        <p className="card-text">Height:</p>
+                        <p>{detail?.properties?.height}</p>
+                    </div>
+                    <div className="border-end border-danger p-2">
+                        <p className="card-text">Mass:</p>
+                        <p>{detail?.properties?.mass}</p>
+                    </div>
+                    <div className="border-end border-danger p-2">
+                        <p className="card-text">Skin color:</p>
+                        <p>{detail?.properties?.skin_color}</p>
+                    </div>
+
                 </div>
+
+
             </div>
         </>
     )

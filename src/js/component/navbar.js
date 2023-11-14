@@ -17,7 +17,7 @@ export const Navbar = () => {
 			<div className="ml-auto">
 				<ul className="navbar-nav">
 					<li className="nav-item dropdown">						
-						<button className="nav-link dropdown-toggle btn btn-warning text black" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<button className="nav-link dropdown-toggle btn btn-warning text-black p-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites {store.favoritos.length}
 						</button>
 						<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
