@@ -26,7 +26,7 @@ function VehiclesDetail() {
             <div className="container my-container text-dark">
                 <div className="d-flex justify-content-center ">
                     <div className="p-3">
-                        <img src={`https://picsum.photos/800/600`} className="card-img-top" alt="" />
+                        <img src={`https://starwars-visualguide.com/assets/img/vehicles/${vehiculo?.uid}.jpg`} className="card-img-top" alt="" />
                     </div>
                     <div className="p-3">
                         {/* ? la primera vez que de undefined, se espera no explote a la primera */}

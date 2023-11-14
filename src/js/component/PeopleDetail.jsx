@@ -9,7 +9,7 @@ function PeopleDetail() {
     const [detail, setDetail] = useState({})
 
     function searchDetail() {
-        let result = store.people.find((item) => item._id == id)
+        const result = store.people.find((item) => item._id == id)
         setDetail(result)
     }
 
@@ -19,7 +19,7 @@ function PeopleDetail() {
             <div className="container my-container text-dark">
                 <div className="d-flex justify-content-center ">
                     <div className="p-3">
-                        <img src={`https://picsum.photos/800/600`} className="card-img-top" alt="..." />
+                        <img src={`https://starwars-visualguide.com/assets/img/characters/${detail?.uid}.jpg`} className="card-img-top" alt="..." />
                     </div>
                     <div className="p-3">
                         {/* ? la primera vez que de undefined, se espera no explote a la primera */}
